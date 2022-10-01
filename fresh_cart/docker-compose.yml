@@ -2,9 +2,8 @@ version: "3"
 services: 
   springboot-app:
    # container_name: spring-app
-    image: fresh_cart_backend
+    image: arjunkhade/akcode:fresh_cart_backend
     restart: always
-    build: .
     ports:
       - 9090:8080 
     environment:
@@ -14,8 +13,7 @@ services:
       MYSQL_PORT: 3306
   mysqldb: 
     container_name: mysqldb
-    image: mysql
-    build: ./fresh-cart-database/
+    image: arjunkhade/akcode:fresh_cart_database
     environment:
       MYSQL_DATABASE: fresh_cart
       MYSQL_ROOT_PASSWORD: root
@@ -23,8 +21,7 @@ services:
       - 3307:3306
   fresh-cart-frontend:
     container_name: fresh_cart_frontend
-    image: fresh_cart_frontend
-    build: ./fresh-cart-frontend/
+    image: arjunkhade/akcode:fresh_cart_frontend
     ports:
       - 80:80
       
